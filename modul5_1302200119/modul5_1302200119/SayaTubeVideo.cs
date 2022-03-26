@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ namespace modul5_1302200119
 
         public SayaTubeVideo(string title)
         {
+            Debug.Assert(title.Length <= 200 && title != null, "panjak karakter melebihi dari 200 atau null");
             this.title = title;
 
             const string chars = "0123456789";
@@ -26,7 +28,7 @@ namespace modul5_1302200119
 
         public void IncreasePlayCount(int x)
         {
-            //Debug.Assert(x <= 10000000, "masukkan angka yang lebih kecil!");
+            Debug.Assert(x <= 25000000 && x >= 0, "masukkan angka yang lebih kecil! dan tidak negatif");
             try
             {
                 this.playCount = checked(this.playCount + x);
